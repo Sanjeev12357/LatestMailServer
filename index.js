@@ -261,12 +261,12 @@ app.post('/api/set-reminder', async (req, res) => {
 });
 
 // Use environment variable for cron secret
-const CRON_SECRET = process.env.CRON_SECRET || crypto.randomBytes(32).toString('hex');
-console.log('CRON_SECRET (for setup purposes):', CRON_SECRET);
+//const CRON_SECRET = process.env.CRON_SECRET || crypto.randomBytes(32).toString('hex');
+//console.log('CRON_SECRET (for setup purposes):', CRON_SECRET);
 
 app.post('/api/check-reminders', async (req, res) => {
   // Verify secret from environment variable
-  if (req.headers['x-cron-secret'] !== CRON_SECRET) {
+  if (req.headers['x-cron-secret'] !== 'Sanjeev') {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 
